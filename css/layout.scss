@@ -1,0 +1,351 @@
+*{
+    // border: 1px solid rgb(100, 100, 100) !important;
+    position: relative;
+}
+@import "var";
+body{
+  font-family: "PingFang","Microsoft Jheng Hei","蘋方","微軟正黑體","sans-serif";
+}
+
+$normal:#86D73F;
+$tooLight:#31BAF9;
+$tooHeavy:#FF982D;
+$obesity:#FF6C03;
+$Sobesity:#FF1200;
+
+@mixin measuring($color){
+    border-color:#{$color};
+    & > p.nub{
+      color:#{$color};
+    }
+    & > p.bmi{
+      color: #{$color};
+    }
+    & > span{
+      background: #{$color};
+    }
+}//measuring
+
+
+.page{
+  position: relative;
+  min-height: 100vh;
+  background: #efefef;
+  z-index: 1;
+  width: 100vw;
+  overflow: hidden;
+}
+header{
+  background: #424242;
+  height: 300px;
+  & > div{
+    position: relative;
+    // background-color: #fff;
+    height: 100%;
+    h1.logo{
+    display: inline-block;
+    position: absolute;
+    width: 117px;
+    height: 117px;
+    // background-image: url(/images/SVG/b2.svg);
+    top:92px;
+    left:173px;
+    line-height: 117px;
+    font-size: 117px;
+    color: #FFD366;
+    //h1
+    }
+    .form{
+      display: inline-block;
+      position: absolute;
+      top:74px;
+      left:290px;
+      margin-left: 97px;
+      & *{
+        display: block;
+      }
+      & .bodyweight{
+        margin-top: 23px;
+      }
+      & label{
+        font-size: 18px;
+        color: #FFD366;
+        line-height: 21px;
+      }
+      & input{
+        margin-top: 7px;
+        width: 250px;
+        height: 40px;
+
+        background: rgba(255,255,255,0.18);
+        border: 2px solid #FFD366;
+        border-radius: 10px;
+
+        padding: 8px 16px;
+        line-height: 28px;
+        font-size: 24px;
+        color:rgba(255,255,255,0.50);
+        &:focus{
+          outline: none;
+        }
+      }
+      //form
+    }
+    & .btn{
+      display: inline-block;
+      position: absolute;
+      top: 92px;
+      right: 214px;
+      margin-left: 53px;
+      // padding:48px 23.5px; ;
+      width:120px ;
+      height:120px ;
+      border-radius: 50%;
+      background-color: #FFD366;
+      text-align: center;
+      & > p.sub{
+        display: inline-block;
+        margin:48px 23.5px;      
+        font-size: 24px;
+        line-height: 25px;
+        color: #424242;
+      }
+      &:hover{
+        background-color: #FFD366;
+        box-shadow: 0 1px 6px 3px rgba(255,196,50,0.64);
+      }
+      &:active{
+        box-shadow: none;
+        background-color: #DEA821;
+      }
+      & > p.nub,& > p.bmi,& > span{
+        display: none;
+      }
+
+      &.result{
+        background-color:#424242;
+        border: 6px solid;
+        width:126px ;
+        height:126px ;
+        &:hover{
+          box-shadow: none;
+          & > span{
+            transform: rotate(720deg);
+          }
+        }
+        & >p.sub{
+          display: none;
+        }
+        & > p.nub{
+          display: inline-block;
+          margin:41px 18px;
+          // color: #86D73F;
+          font-size: 32px;
+          line-height:38px;
+        }
+        & > p.bmi{
+          position: absolute;
+          top: 77px;
+          left: 48px;
+          display: inline-block;         
+          font-size: 14px;
+          line-height: 17px;
+          // color: #86D73F;
+        }
+        & > span{
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          // background: #86D73F;
+          border: 3px solid #424242;
+          padding-top: 5px;
+          font-size: 16px;
+          line-height: 16px;
+          text-align: center;
+          vertical-align:middle;
+          position: absolute;
+          top: 78px;
+          left: 93px;
+          transform: rotate(0deg);
+          transition: 0.5s ease-out all;
+          
+        }
+        &.normal{
+          @include measuring($normal);
+        }
+        &.tooLight{
+          @include measuring($tooLight);
+        }
+        &.tooHeavy{
+          @include measuring($tooHeavy);
+        }
+        &.obesity{
+          @include measuring($obesity);
+        }
+        &.sObesity{
+          @include measuring($Sobesity);
+        }
+        //.btn.result
+      }
+     //btn
+    }
+    .resulttext{
+      font-size: 32px;
+      // color: #86D73F;
+      line-height: 38px;
+      position: absolute;
+      top: 137px;
+      left: 829px;
+      display: none;
+      &.normal{
+        color:$normal;
+        display: block;
+      }
+      &.tooLight{
+        color:$tooLight;
+        display: block;
+      }
+      &.tooHeavy{
+        color:$tooHeavy;
+        display: block;
+      }
+      &.obesity{
+        color:$obesity;
+        display: block;
+      }
+      &.sObesity{
+        color:$Sobesity;
+        display: block;
+      }
+      //resulttext
+    }
+    //div.container
+  }
+  //header
+}
+main{
+  width: 100%;
+  background-color: #efefef;
+  min-height:55vh;
+  & .mark{
+    margin-top: 48px;
+    margin-bottom: 46px;
+    font-size: 24px;
+    color: #424242;
+    line-height: 28px;
+  }
+  & section{
+    margin: 0 auto;
+    width: 624px;
+    margin-bottom: 74px;
+  }
+  & .card{
+    position: relative;
+    margin-top: 16px;
+    background-color: #fff;
+    width: 624px;
+    height: 62px;
+    padding:  21px 0;
+    padding-left: 19px;
+    padding-right: 11px;
+    font-size: 20px;
+    line-height: 23px;
+    color: #4A4A4A;
+    & p{
+      display: inline-block;
+      font-size: 20px;
+      line-height: 23px;
+      position: absolute;
+      &.BMI{
+        left: 129px;
+      }
+      &.weight{
+        left: 252px;
+      }
+      &.height{
+        left: 386px;
+      }
+      &.date{
+        left: 545px;
+      }
+    }
+    & button{
+      position: absolute;
+      font-size: 20px;
+      line-height: 25px;
+      height: 25px;
+      width: 25px;
+      border-radius: 5px;
+      background-color: transparent;
+      right: 0px;
+      top: 0px;
+      outline: none;
+      &:hover{
+        background-color: #aaa;
+      }
+    }
+    & .sfont{
+      font-size: 12px;
+      line-height: 15px;
+      color: #424242;
+    }
+    &::before{
+      content: "";
+      display:inline-block;
+      position: absolute;
+      width: 7px;
+      height: 62px;
+      // background: #86D73F;
+      top: 0;
+      left: 0;
+    }
+    &.normal{
+      &::before{
+        background: $normal;
+        box-shadow:2px 0 3px 0 rgba(134,215,63,0.29);
+      }
+    }
+    &.tooLight{
+      &::before{
+        background: $tooLight;
+        box-shadow: 2px 0 3px 0 rgba(49,186,249,0.29);
+      }
+    }
+    &.tooHeavy{
+      &::before{
+        background: $tooHeavy;
+        box-shadow: 2px 0 3px 0 rgba(255,152,45,0.29);
+      }
+    }
+    &.obesity{
+      &::before{
+        background: $obesity;
+        box-shadow: 2px 0 3px 0 rgba(255,108,3,0.29);
+      }
+    }
+    &.sObesity{
+      &::before{
+        background:$Sobesity;
+        box-shadow: 2px 0 3px 0 rgba(255,18,0,0.29);
+      }
+    }
+    //card
+  }
+  
+}
+footer{
+  width: 100%;
+  background-color: #FFD366;
+  padding: 17px;
+  position: relative;
+  bottom: 0;
+  & .slogo{
+    display: inline-block;
+    color: #424242;
+    height: 55px;
+    width: 55px;
+    font-size: 55px;
+    line-height: 55px;
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/icomoon-v1.0/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <div class="page" id="page">
+        <header class="container-fluid">
+            <div class="container">
+                <h1 class="logo icon-bni2"></h1>
+                <div class="form">
+                    <div class="height">
+                        <label for="" class="">身高 cm</label><input type="text" name="height" class="" required
+                            placeholder="請輸入身高">
+                    </div>
+                    <div class="bodyweight">
+                        <label for="" class="">體重 kg</label><input type="text" name="weight" class="" required
+                            placeholder="請輸入體重">
+                    </div>
+                </div>
+                <div class="">
+                    <div class="btn" id="btn">
+                        <p class="sub">看結果</p>
+                        <p class="nub">{{nub}}</p>
+                        <p class="bmi">bmi</p>
+                        <span class="icon-reset"></span>
+                    </div>
+                    <p class="resulttext">{{result}}</p>
+                </div>
+            </div>
+        </header>
+        <main class="container-fluid">
+            <div class="container">
+                <h2 class="mark text-center">BMI 紀錄</h2>
+                <section class="" id="datacard">
+                    <div class="card sObesity">
+                        <p class="">重度肥胖</p>
+                        <p class="BMI">
+                            <span class="sfont">BMI</span>
+                            <span class="bmidata">20.90</span>
+                        </p>
+                        <p class="weight">
+                            <span class="sfont">weight</span>
+                            <span class="wdata">70</span>kg
+                        </p>
+                        <p class="height">
+                            <span class="sfont">height</span>
+                            <span class="hdata">180</span>cm
+                        </p>
+                        <p class="date">
+                            <span class="sfont">06-19-2017</span>
+                        </p>
+                        <button class="del" data-nub="001">x</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="container-fluid">
+            <div class="container text-center">
+                <h3 class="slogo icon-bni2"></h3>
+                <p class="mt-2">2020 六腳學院作品練習 蘇喜福</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="js/all.js"></script>
+</body>
+
+</html>
